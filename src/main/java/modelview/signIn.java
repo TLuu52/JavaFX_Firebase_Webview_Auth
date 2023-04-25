@@ -10,6 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ *
+ * @author Thuan Luu
+ */
 public class signIn {
     
     @FXML

@@ -34,7 +34,7 @@ public class signUp {
     void signUpButton(ActionEvent event) throws IOException {
         
         if (pass1TextField.getText() == null ? Pass2TextField.getText() != null : !pass1TextField.getText().equals(Pass2TextField.getText())) {
-            System.err.println("Passwords do not match");
+            System.err.println("Passwords do not match, Try Again");
         } else {
             CreateRequest request = new CreateRequest()
                 .setDisplayName( nameTextField.getText())

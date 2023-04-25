@@ -26,7 +26,7 @@ import models.Person;
 public class AccessFBView {
 
  
-     @FXML
+    @FXML
     private TextField nameField;
     @FXML
     private TextField majorField;
