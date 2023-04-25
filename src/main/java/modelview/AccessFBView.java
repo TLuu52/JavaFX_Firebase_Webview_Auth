@@ -4,25 +4,16 @@ import com.mycompany.mvvmexample.App;
 import viewmodel.AccessDataViewModel;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
-import com.google.firebase.auth.UserRecord.CreateRequest;
-import com.mycompany.mvvmexample.FirestoreContext;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,8 +24,9 @@ import javafx.scene.control.TextField;
 import models.Person;
 
 public class AccessFBView {
+
  
-    @FXML
+     @FXML
     private TextField nameField;
     @FXML
     private TextField majorField;
@@ -66,14 +58,9 @@ public class AccessFBView {
         addData();
     }
 
-        @FXML
+    @FXML
     private void readRecord(ActionEvent event) {
         readFirebase();
-    }
-    
-            @FXML
-    private void regRecord(ActionEvent event) {
-        registerUser();
     }
     
      @FXML
@@ -93,8 +80,9 @@ public class AccessFBView {
         ApiFuture<WriteResult> result = docRef.set(data);
     }
     
-    public boolean readFirebase() {
-        key = false;
+        public boolean readFirebase()
+         {
+             key = false;
 
         //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future =  App.fstore.collection("References").get();
@@ -132,33 +120,13 @@ public class AccessFBView {
         return key;
     }
         
-    public void sendVerificationEmail() {
+        public void sendVerificationEmail() {
         try {
             UserRecord user = App.fauth.getUser("name");
             //String url = user.getPassword();
 
-        } catch (Exception e) {}
-    }
-
-    public boolean registerUser() {
-        
-        CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("hello@example.com")
-                .setEmailVerified(false)
-                .setPassword("secretPassword")
-                .setPhoneNumber("+11234567888")
-                .setDisplayName("Joe Doe")
-                .setDisabled(false);
-        
-        try {
-            UserRecord userRecord = App.fauth.createUser(request);
-            System.out.println("Successfully created new user: " + userRecord.getUid());
-            return true;
-
-        } catch (FirebaseAuthException ex) {
-            Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+        } catch (Exception e) {
         }
-        
     }
+
 }

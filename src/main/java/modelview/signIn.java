@@ -7,28 +7,24 @@ import com.mycompany.mvvmexample.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class signIn {
-
-    @FXML
-    private Button button_signIn, button_signUp;
-
-    @FXML
-    private TextField textField_user;
     
     @FXML
-    private PasswordField textField_pass;
+    private TextField userTextField;
+    
+    @FXML
+    private PasswordField passTextField;
     
     static UserRecord currentUser;
 
     @FXML
-    void handleButton_signIn(ActionEvent event) throws IOException {
+    void signInButton(ActionEvent event) throws IOException {
         try {
-            String user = textField_user.getText();
-            String pass = textField_pass.getText();
+            String user = userTextField.getText();
+            String pass = passTextField.getText();
             
             currentUser = FirebaseAuth.getInstance().getUser(user);
             App.setRoot("AccessFBView.fxml");
@@ -39,7 +35,7 @@ public class signIn {
     }
 
     @FXML
-    void handleButton_signUp(ActionEvent event) throws IOException {
+    void signUpButton(ActionEvent event) throws IOException {
         App.setRoot("signup.fxml");
     }
 }

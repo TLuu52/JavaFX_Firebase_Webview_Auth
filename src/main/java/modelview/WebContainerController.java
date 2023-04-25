@@ -2,7 +2,7 @@ package modelview;
 
 import com.mycompany.mvvmexample.App;
 import java.io.IOException;
-import java.net.URISyntaxException;
+
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -20,7 +20,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.concurrent.Worker.State;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import netscape.javascript.JSObject;
 import org.w3c.dom.Document;
 
@@ -72,8 +71,7 @@ public class WebContainerController implements Initializable {
     @FXML
     Label label;
     
-    @FXML
-    private MenuItem menuItem_user;
+    
     
     @FXML
     WebView webView;
@@ -91,7 +89,7 @@ public class WebContainerController implements Initializable {
     }
     
     @FXML
-    private void swithcBackStage(ActionEvent e){
+    private void switchBackStage(ActionEvent e){
         try {
             App.setRoot("AccessFBView.fxml");
         } catch (IOException ex) {
@@ -101,14 +99,13 @@ public class WebContainerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        menuItem_user.setText(signIn.currentUser.getDisplayName());
 
         try {
-            webEngine = webView.getEngine(); //  webView.setContextMenuEnabled(false);
+            webEngine = webView.getEngine();
+                      //  webView.setContextMenuEnabled(false);
             webEngine.loadContent(HTML_STRING2);
+
             webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
-                
                 @Override
                 public void changed(ObservableValue<? extends State> ov, State t, State newState) {
                      if (newState == Worker.State.SUCCEEDED) {

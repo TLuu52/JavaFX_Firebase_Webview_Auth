@@ -7,7 +7,6 @@ import com.mycompany.mvvmexample.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -17,36 +16,32 @@ import javafx.scene.control.TextField;
  */
 public class signUp {
     
-    
-   @FXML
-    private Button button_signIn, button_signUp;
+    @FXML
+    private TextField emailTextfield, nameTextField, 
+            phoneTextField, userTextField;
 
     @FXML
-    private TextField textField_email, textField_name, 
-            textField_phone, textField_user;
-
-    @FXML
-    private PasswordField textField_pass1, textField_pass2;
+    private PasswordField pass1TextField, Pass2TextField;
     
     static UserRecord userRecord;
 
     @FXML
-    void handleButton_signIn(ActionEvent event) throws IOException {
+    void signInButton(ActionEvent event) throws IOException {
         App.setRoot("signin.fxml");
     }
 
     @FXML
-    void handleButton_signUp(ActionEvent event) throws IOException {
+    void signUpButton(ActionEvent event) throws IOException {
         
-        if (textField_pass1.getText() == null ? textField_pass2.getText() != null : !textField_pass1.getText().equals(textField_pass2.getText())) {
+        if (pass1TextField.getText() == null ? Pass2TextField.getText() != null : !pass1TextField.getText().equals(Pass2TextField.getText())) {
             System.err.println("Passwords do not match");
         } else {
             CreateRequest request = new CreateRequest()
-                .setDisplayName(textField_name.getText())
-                .setEmail(textField_email.getText())
-                .setUid(textField_user.getText())
-                .setPassword(textField_pass1.getText())
-                .setPhoneNumber(textField_phone.getText());
+                .setDisplayName( nameTextField.getText())
+                .setEmail(emailTextfield.getText())
+                .setUid(userTextField.getText())
+                .setPassword(pass1TextField.getText())
+                .setPhoneNumber(phoneTextField.getText());
 
             try {
                 userRecord = App.fauth.createUser(request);
@@ -55,7 +50,7 @@ public class signUp {
                 System.err.println("Info taken or information incomplete");
             }
 
-            handleButton_signIn(event);
+            signInButton(event);
         }
         
     }
