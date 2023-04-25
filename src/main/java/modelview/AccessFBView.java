@@ -25,17 +25,13 @@ import models.Person;
 
 public class AccessFBView {
 
- 
+    // Creates Text Fields
     @FXML
-    private TextField nameField;
+    private TextField nameField, majorField , ageField;
+    // Creates Buttons
     @FXML
-    private TextField majorField;
-    @FXML
-    private TextField ageField;
-    @FXML
-    private Button writeButton;
-    @FXML
-    private Button readButton;
+    private Button writeButton, readButton, exitButton;
+    
     @FXML
     private TextArea outputField;
      private boolean key;
@@ -66,6 +62,11 @@ public class AccessFBView {
      @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("WebContainer.fxml");
+    }
+    
+    @FXML
+    private void exit() throws IOException {
+        App.setRoot("signin.fxml");
     }
     
     public void addData() {

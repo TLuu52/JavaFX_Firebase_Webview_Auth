@@ -17,6 +17,7 @@
             <TextField fx:id="ageField" promptText="Age" />
             <HBox prefHeight="32.0" prefWidth="465.0">
                <children>
+                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit" />
                   <Button fx:id="readButton" mnemonicParsing="false" onAction="#readRecord" text="Read" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />

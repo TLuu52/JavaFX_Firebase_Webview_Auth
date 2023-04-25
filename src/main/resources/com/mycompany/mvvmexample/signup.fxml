@@ -28,7 +28,6 @@
             <PasswordField fx:id="Pass2TextField" promptText="Confirm Password" />
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button fx:id="signInButton" mnemonicParsing="false" onAction="#signInButton" text="Sign In" />
                   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpButton" text="SignUp" />
                </children>
             </HBox>

@@ -11,14 +11,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- *
+ * Sign In Page
+ * 
  * @author Thuan Luu
  */
 public class signIn {
     
+    // Creates Text Field
     @FXML
     private TextField userTextField;
     
+    // Creates Password Field
     @FXML
     private PasswordField passTextField;
     

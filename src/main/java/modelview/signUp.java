@@ -11,25 +11,30 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
+ * Sign Up Page
  *
  * @author Thuan Luu
  */
 public class signUp {
     
+    // Creates Text Fields
     @FXML
     private TextField emailTextfield, nameTextField, 
             phoneTextField, userTextField;
-
+    
+    //Creates Password Fields
     @FXML
     private PasswordField pass1TextField, Pass2TextField;
     
     static UserRecord userRecord;
-
+    
+    
     @FXML
     void signInButton(ActionEvent event) throws IOException {
         App.setRoot("signin.fxml");
     }
-
+    
+    // creates the user after pressing the signup button
     @FXML
     void signUpButton(ActionEvent event) throws IOException {
         
