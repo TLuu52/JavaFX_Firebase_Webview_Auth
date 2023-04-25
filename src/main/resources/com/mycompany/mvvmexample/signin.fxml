@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modelview.signIn">
+   <center>
+      <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="textField_user" promptText="User" />
+            <PasswordField fx:id="textField_pass" promptText="Pass" />
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button fx:id="button_signIn" mnemonicParsing="false" onAction="#handleButton_signIn" text="Sign In" />
+                  <Button fx:id="button_signUp" mnemonicParsing="false" onAction="#handleButton_signUp" text="SignUp" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
